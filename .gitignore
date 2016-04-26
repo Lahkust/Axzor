@@ -32,3 +32,5 @@
 *.suo
 *.tlog
 *.pdb
+*.pdb
+*.log
