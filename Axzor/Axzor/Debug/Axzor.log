@@ -1,14 +1,33 @@
-﻿Build started 2016-04-26 10:29:13.
-     1>Project "C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Axzor\Axzor.vcxproj" on node 2 (Build target(s)).
+﻿La génération a démarré 2016-04-26 10:58:09.
+     1>Projet "I:\CPP\Projet_final\Axzor\Axzor\Axzor\Axzor.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp sprite.cpp
+         sprite.cpp
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.h(10): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'texture'
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.h(10): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.h(11): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'rect'
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.h(11): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.h(13): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'render'
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.h(13): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.h(17): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'get_rect'
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.h(17): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.h(17): warning C4183: 'get_rect' : type de retour manquant ; fonction membre retournant 'int' prise par défaut
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.h(20): error C2061: erreur de syntaxe : identificateur 'renderer'
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.cpp(30): error C2143: erreur de syntaxe : absence de ';' avant 'sprite::get_rect'
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.cpp(30): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.cpp(31): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.cpp(32): error C2064: le terme ne correspond pas à une fonction qui prend 0 arguments
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.cpp(46): error C2065: 'renderer' : identificateur non déclaré
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.cpp(46): error C2146: erreur de syntaxe : absence de ')' avant l'identificateur 'render'
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.cpp(46): error C2761: 'void sprite::set_renderer(void)' : redéclaration de la fonction membre non autorisée
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.cpp(46): error C2059: erreur de syntaxe : ')'
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.cpp(47): error C2143: erreur de syntaxe : absence de ';' avant '{'
+     1>i:\cpp\projet_final\axzor\axzor\axzor\sprite.cpp(47): error C2447: '{' : en-tête de fonction manquant (liste formelle à l'ancien format ?)
          main.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Debug\Axzor.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Debug\Axzor.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Debug\Axzor.lib" /MACHINE:X86 Debug\main.obj
-     1>MSVCRTD.lib(crtexe.obj) : error LNK2019: unresolved external symbol _main referenced in function ___tmainCRTStartup
-     1>C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Debug\Axzor.exe : fatal error LNK1120: 1 unresolved externals
-     1>Done Building Project "C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Axzor\Axzor.vcxproj" (Build target(s)) -- FAILED.
+     1>i:\cpp\projet_final\axzor\axzor\axzor\main.cpp(15): fatal error C1083: Impossible d'ouvrir le fichier include : '../SDL2/include/SDL.h' : No such file or directory
+         Génération de code en cours...
+     1>Génération du projet "I:\CPP\Projet_final\Axzor\Axzor\Axzor\Axzor.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
 
-Build FAILED.
+ÉCHEC de la build.
 
-Time Elapsed 00:00:03.81
+Temps écoulé 00:00:02.15
