@@ -1,5 +1,6 @@
 #pragma once
-class ennemi
+#include "sprite.h"
+class ennemi: public sprite
 {
 public:
 	ennemi();

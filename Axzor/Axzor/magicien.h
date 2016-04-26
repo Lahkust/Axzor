@@ -1,10 +1,11 @@
 #pragma once
+#include "sprite.h"
 #include "staff.h"
 #include "ennemi.h"
 #include "bloc.h"
 #include "potion.h"
 
-class magicien
+class magicien: public sprite
 {
 public:
 	magicien();
@@ -17,7 +18,7 @@ public:
 	magicien(int x, int y, renderer render);
 private:
 	void reduire_vie(int pv);
-	int augmenter_vie(int pv);
+	void augmenter_vie(int pv);
 public:
 	bool collision(ennemi badguy);
 	bool collision(bloc lebloc);

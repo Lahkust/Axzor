@@ -1,5 +1,6 @@
 #pragma once
-class potion
+#include "sprite.h"
+class potion: public sprite
 {
 public:
 	potion();
