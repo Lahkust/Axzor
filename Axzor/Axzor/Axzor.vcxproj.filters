@@ -27,6 +27,12 @@
     <ClCompile Include="magicien.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="potion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ennemi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sprite.h">
@@ -36,6 +42,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="magicien.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="potion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ennemi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

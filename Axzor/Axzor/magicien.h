@@ -1,4 +1,9 @@
 #pragma once
+#include "staff.h"
+#include "ennemi.h"
+#include "bloc.h"
+#include "potion.h"
+
 class magicien
 {
 public:
