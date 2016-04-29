@@ -5,6 +5,6 @@ class potion: public sprite
 public:
 	potion();
 	~potion();
-	potion(int x, int y, renderer render);
+	potion(int x, int y, SDL_Renderer* render);
 };
 

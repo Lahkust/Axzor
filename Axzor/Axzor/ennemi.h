@@ -8,7 +8,7 @@ public:
 private:
 	float vie;
 public:
-	ennemi(int x, int y, renderer render, char type);
+	ennemi(int x, int y, SDL_Renderer* render, char type);
 	bool collision(bloc lebloc);
 	bool collision(ennemi badguy);
 };

@@ -15,7 +15,7 @@ private:
 	float _vie;
 	float _velocite;
 public:
-	magicien(int x, int y, renderer render);
+	magicien(int x, int y, SDL_Renderer* render);
 private:
 	void reduire_vie(int pv);
 	void augmenter_vie(int pv);

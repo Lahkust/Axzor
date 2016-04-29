@@ -1,28 +1,27 @@
-<<<<<<< HEAD
-﻿Build started 2016-04-26 11:53:53.
+﻿Build started 2016-04-28 22:51:36.
      1>Project "C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Axzor\Axzor.vcxproj" on node 2 (Build target(s)).
-=======
-﻿La génération a démarré 2016-04-26 11:00:14.
-     1>Projet "I:\CPP\Projet_final\Axzor\Axzor\Axzor\Axzor.vcxproj" sur le nœud 2 (Build cible(s)).
->>>>>>> origin/master
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt sprite.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ennemi.cpp magicien.cpp main.cpp potion.cpp sprite.cpp staff.cpp
          sprite.cpp
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.h(24): error C2146: syntax error : missing ';' before identifier 'render'
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.h(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.h(35): error C2061: syntax error : identifier 'renderer'
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.cpp(299): error C2065: 'renderer' : undeclared identifier
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.cpp(299): error C2146: syntax error : missing ')' before identifier 'render'
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.cpp(299): error C2761: 'void sprite::set_renderer(void)' : member function redeclaration not allowed
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.cpp(299): error C2059: syntax error : ')'
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.cpp(300): error C2143: syntax error : missing ';' before '{'
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.cpp(300): error C2447: '{' : missing function header (old-style formal list?)
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.cpp(65): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+         main.cpp
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(65): error C2065: 'LARGEUR_FENETRE' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(65): error C2065: 'HAUTEUR_FENETRE' : undeclared identifier
+         magicien.cpp
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(12): error C2061: syntax error : identifier 'bloc'
+         ennemi.cpp
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(12): error C2061: syntax error : identifier 'bloc'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(8): error C3861: 'renderer': identifier not found
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(23): error C2039: 'set_type' : is not a member of 'ennemi'
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(3) : see declaration of 'ennemi'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(28): error C2511: 'bool ennemi::collision(bloc)' : overloaded member function not found in 'ennemi'
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(3) : see declaration of 'ennemi'
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         staff.cpp
+         potion.cpp
      1>Done Building Project "C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Axzor\Axzor.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-<<<<<<< HEAD
-Time Elapsed 00:00:00.30
-=======
-Temps écoulé 00:00:00.36
->>>>>>> origin/master
+Time Elapsed 00:00:02.05

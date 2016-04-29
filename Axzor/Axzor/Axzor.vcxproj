@@ -78,17 +78,21 @@
   <ItemGroup>
     <ClCompile Include="bloc.cpp" />
     <ClCompile Include="ennemi.cpp" />
+    <ClCompile Include="Ltexture.cpp" />
     <ClCompile Include="magicien.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="potion.cpp" />
     <ClCompile Include="sprite.cpp" />
+    <ClCompile Include="staff.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bloc.h" />
     <ClInclude Include="ennemi.h" />
+    <ClInclude Include="LTexture.h" />
     <ClInclude Include="magicien.h" />
     <ClInclude Include="potion.h" />
     <ClInclude Include="sprite.h" />
+    <ClInclude Include="staff.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

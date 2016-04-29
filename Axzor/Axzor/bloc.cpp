@@ -11,6 +11,6 @@ bloc::~bloc()
 }
 
 
-bloc::bloc(int x, int y, renderer render)
+bloc::bloc(int x, int y, SDL_Renderer* render)
 {
 }
