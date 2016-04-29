@@ -1,27 +1,118 @@
-﻿Build started 2016-04-28 22:51:36.
+﻿Build started 2016-04-29 10:26:10.
      1>Project "C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Axzor\Axzor.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ennemi.cpp magicien.cpp main.cpp potion.cpp sprite.cpp staff.cpp
+         staff.cpp
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.h(51): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\staff.h(12): error C2758: 'staff::_position_x' : a member of reference type must be initialized
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\staff.h(28) : see declaration of 'staff::_position_x'
          sprite.cpp
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.cpp(65): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.h(51): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.cpp(50): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.cpp(112): error C2084: function 'void sprite::render(void)' already has a body
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.h(29) : see previous definition of 'render'
          main.cpp
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(65): error C2065: 'LARGEUR_FENETRE' : undeclared identifier
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(65): error C2065: 'HAUTEUR_FENETRE' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(126): error C2065: 'magicienTexture' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(126): error C2228: left of '.loadFromFile' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(133): error C2065: 'magicienRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(133): error C2228: left of '.h' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(133): error C2065: 'HAUTEUR_IMAGE_BALLE' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(134): error C2065: 'magicienRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(134): error C2228: left of '.w' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(134): error C2065: 'LARGEUR_IMAGE_BALLE' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(135): error C2065: 'magicienRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(135): error C2228: left of '.x' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(136): error C2065: 'magicienRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(136): error C2228: left of '.y' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(140): error C2065: 'barreGTexture' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(140): error C2228: left of '.loadFromFile' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(147): error C2065: 'barreGRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(147): error C2228: left of '.h' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(147): error C2065: 'HAUTEUR_IMAGE_BARRE_G' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(148): error C2065: 'barreGRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(148): error C2228: left of '.w' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(148): error C2065: 'LARGEUR_IMAGE_BARRE_G' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(149): error C2065: 'barreGRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(149): error C2228: left of '.x' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(150): error C2065: 'barreGRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(150): error C2228: left of '.y' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(154): error C2065: 'barreMTexture' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(154): error C2228: left of '.loadFromFile' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(161): error C2065: 'barreMRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(161): error C2228: left of '.h' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(161): error C2065: 'HAUTEUR_IMAGE_BARRE_M' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(162): error C2065: 'barreMRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(162): error C2228: left of '.w' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(162): error C2065: 'LARGEUR_IMAGE_BARRE_M' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(163): error C2065: 'barreMRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(163): error C2228: left of '.x' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(164): error C2065: 'barreMRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(164): error C2228: left of '.y' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(168): error C2065: 'barreDTexture' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(168): error C2228: left of '.loadFromFile' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(175): error C2065: 'barreDRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(175): error C2228: left of '.h' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(175): error C2065: 'HAUTEUR_IMAGE_BARRE_D' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(176): error C2065: 'barreDRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(176): error C2228: left of '.w' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(176): error C2065: 'LARGEUR_IMAGE_BARRE_D' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(177): error C2065: 'barreDRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(177): error C2228: left of '.x' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(178): error C2065: 'barreDRect' : undeclared identifier
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(178): error C2228: left of '.y' must have class/struct/union
+                 type is 'unknown-type'
          magicien.cpp
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.h(51): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\staff.h(12): error C2758: 'staff::_position_x' : a member of reference type must be initialized
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\staff.h(28) : see declaration of 'staff::_position_x'
      1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(12): error C2061: syntax error : identifier 'bloc'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\magicien.cpp(18): error C2039: 'set_x' : is not a member of 'magicien'
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\magicien.h(8) : see declaration of 'magicien'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\magicien.cpp(19): error C2039: 'set_y' : is not a member of 'magicien'
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\magicien.h(8) : see declaration of 'magicien'
          ennemi.cpp
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.h(51): warning C4305: 'initializing' : truncation from 'double' to 'const float'
      1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(12): error C2061: syntax error : identifier 'bloc'
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(8): error C3861: 'renderer': identifier not found
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(23): error C2039: 'set_type' : is not a member of 'ennemi'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(6): error C2039: 'set_x' : is not a member of 'ennemi'
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(3) : see declaration of 'ennemi'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(7): error C2039: 'set_y' : is not a member of 'ennemi'
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(3) : see declaration of 'ennemi'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(20): error C2039: 'set_x' : is not a member of 'ennemi'
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(3) : see declaration of 'ennemi'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(21): error C2039: 'set_y' : is not a member of 'ennemi'
                  c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(3) : see declaration of 'ennemi'
      1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(28): error C2511: 'bool ennemi::collision(bloc)' : overloaded member function not found in 'ennemi'
                  c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(3) : see declaration of 'ennemi'
          Generating Code...
-         Skipping... (no relevant changes detected)
-         staff.cpp
+         Compiling...
          potion.cpp
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.h(51): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\potion.cpp(16): error C2039: 'set_x' : is not a member of 'potion'
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\potion.h(3) : see declaration of 'potion'
+     1>c:\users\nikel\documents\github\axzor\axzor\axzor\potion.cpp(17): error C2039: 'set_y' : is not a member of 'potion'
+                 c:\users\nikel\documents\github\axzor\axzor\axzor\potion.h(3) : see declaration of 'potion'
+         Generating Code...
      1>Done Building Project "C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Axzor\Axzor.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:02.05
+Time Elapsed 00:00:02.23

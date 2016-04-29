@@ -5,7 +5,7 @@ ennemi::ennemi()
 {
 	this->set_x(0);
 	this->set_y(0);
-	this->set_renderer(renderer());		//Remplacer renderer par NULL pour créer un renderer vide ?
+	this->set_renderer(NULL);		
 	vie = 0.0;
 }
 

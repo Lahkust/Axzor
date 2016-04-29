@@ -3,12 +3,15 @@
 
 
 
+
+
 sprite::sprite()
 {
-	_position_x = 0;
-	_position_y = 0;
+	_position.x = 0;
+	_position.y = 0;
 	_type = 0;
 	_direction = 0;
+
 }
 
 
@@ -17,38 +20,21 @@ sprite::~sprite()
 }
 
 
-int sprite::get_x()
+char sprite::get_type()
 {
-	return _position_x;
+	return _type;
 }
-
-
-int sprite::get_y()
-{
-	return _position_y;
-}
-
 
 SDL_Rect sprite::get_rect()
 {
 	return SDL_Rect();
 }
 
-
-void sprite::set_x(int x)
+char sprite::set_type(char type)
 {
-
-	_position_x = x;
-
+	_type = type;
 }
 
-
-void sprite::set_y(int y)
-{
-
-	_position_x = y;
-
-}
 
 
 void sprite::set_renderer(SDL_Renderer* render)
@@ -59,7 +45,7 @@ void sprite::set_renderer(SDL_Renderer* render)
 }
 
 
-void sprite::sauter(float vitesse_verticale, float temps_depuis_debut_saut, const float GRAVITE)
+void sprite::sauter(float vitesse_verticale, float temps_depuis_debut_saut, const float GRAVITE)	//Fonction qui permet de faire sauter le personnage
 {
 
 	_position_y += vitesse_verticale * temps_depuis_debut_saut - 0.5 * GRAVITE *  temps_depuis_debut_saut *  temps_depuis_debut_saut;
@@ -67,12 +53,13 @@ void sprite::sauter(float vitesse_verticale, float temps_depuis_debut_saut, cons
 }
 
 
-void sprite::avancer()
+void sprite::avancer()		//Fonction qui fait avancer le personnage
 {
+
 }
 
 
-bool sprite::collision(SDL_Rect a, SDL_Rect b)
+bool sprite::detecter_collision(SDL_Rect a, SDL_Rect b)	//Fonction qui détecte s'il y a eu une collision
 {
 	//Déclarer les côtés de chaque hitbox
 
@@ -120,5 +107,16 @@ bool sprite::collision(SDL_Rect a, SDL_Rect b)
 
 	//Si aucune côté de A n'est là l'intérieur de B
 	return true;
+
+}
+
+void sprite::render(){
+
+			SDL_Point center;	//Contient le centre de l'image
+			center.x = _largeur_sprite / 2;
+			center.y = _hauteur_sprite / 2;
+
+			_sprite_texure.render(_position_x, _position_y, &rect, angle, &center, flip);
+
 
 }
