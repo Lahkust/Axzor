@@ -17,6 +17,7 @@ Commentaires :
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_mixer.h"
+#include "LTexture.h"
 #include <stdlib.h> 
 #include <time.h>
 #include <vector>
@@ -36,6 +37,13 @@ SDL_Window* fenetreProgramme = NULL;
 
 //Le 'renderer' associé à la fenêtre du programme. Le 'renderer' est l'endroit dans lequelle on placera des textures
 SDL_Renderer* rendererFenetre = NULL;
+
+//***********************************
+
+
+
+
+
 
 
 
@@ -114,64 +122,64 @@ bool loadMedia()
 
 
 
-	////Load balle sprite texture
-	//if (!balleTexture.loadFromFile("images/ball.png"))
-	//{
-	//	printf("Échec de chargement de l'image ! \n");
-	//	success = false;
-	//}
-	//else
-	//{
-	//	balleRect.h = HAUTEUR_IMAGE_BALLE;
-	//	balleRect.w = LARGEUR_IMAGE_BALLE;
-	//	balleRect.x = 0;
-	//	balleRect.y = 0;
-	//}
+	//Load balle sprite texture
+	if (!magicienTexture.loadFromFile("images/axzor_charset.png"))
+	{
+		printf("Échec de chargement de l'image ! \n");
+		success = false;
+	}
+	else
+	{
+		magicienRect.h = HAUTEUR_IMAGE_BALLE;
+		magicienRect.w = LARGEUR_IMAGE_BALLE;
+		magicienRect.x = 0;
+		magicienRect.y = 0;
+	}
 
-	////Load sprite barre G texture
-	//if (!barreGTexture.loadFromFile("images/barreGauche.png"))
-	//{
-	//	printf("Échec de chargement de l'image ! \n");
-	//	success = false;
-	//}
-	//else
-	//{
-	//	barreGRect.h = HAUTEUR_IMAGE_BARRE_G;
-	//	barreGRect.w = LARGEUR_IMAGE_BARRE_G;
-	//	barreGRect.x = 0;
-	//	barreGRect.y = 0;
-	//}
+	//Load sprite barre G texture
+	if (!barreGTexture.loadFromFile("images/barreGauche.png"))
+	{
+		printf("Échec de chargement de l'image ! \n");
+		success = false;
+	}
+	else
+	{
+		barreGRect.h = HAUTEUR_IMAGE_BARRE_G;
+		barreGRect.w = LARGEUR_IMAGE_BARRE_G;
+		barreGRect.x = 0;
+		barreGRect.y = 0;
+	}
 
-	////Load sprite barre M texture
-	//if (!barreMTexture.loadFromFile("images/barreMilieu.png"))
-	//{
-	//	printf("Échec de chargement de l'image ! \n");
-	//	success = false;
-	//}
-	//else
-	//{
-	//	barreMRect.h = HAUTEUR_IMAGE_BARRE_M;
-	//	barreMRect.w = LARGEUR_IMAGE_BARRE_M;
-	//	barreMRect.x = 0;
-	//	barreMRect.y = 0;
-	//}
+	//Load sprite barre M texture
+	if (!barreMTexture.loadFromFile("images/barreMilieu.png"))
+	{
+		printf("Échec de chargement de l'image ! \n");
+		success = false;
+	}
+	else
+	{
+		barreMRect.h = HAUTEUR_IMAGE_BARRE_M;
+		barreMRect.w = LARGEUR_IMAGE_BARRE_M;
+		barreMRect.x = 0;
+		barreMRect.y = 0;
+	}
 
-	////Load sprite barre D texture
-	//if (!barreDTexture.loadFromFile("images/barreDroite.png"))
-	//{
-	//	printf("Échec de chargement de l'image ! \n");
-	//	success = false;
-	//}
-	//else
-	//{
-	//	barreDRect.h = HAUTEUR_IMAGE_BARRE_D;
-	//	barreDRect.w = LARGEUR_IMAGE_BARRE_D;
-	//	barreDRect.x = 0;
-	//	barreDRect.y = 0;
-	//}
+	//Load sprite barre D texture
+	if (!barreDTexture.loadFromFile("images/barreDroite.png"))
+	{
+		printf("Échec de chargement de l'image ! \n");
+		success = false;
+	}
+	else
+	{
+		barreDRect.h = HAUTEUR_IMAGE_BARRE_D;
+		barreDRect.w = LARGEUR_IMAGE_BARRE_D;
+		barreDRect.x = 0;
+		barreDRect.y = 0;
+	}
 
 
-	//return success;
+	return success;
 }
 
 

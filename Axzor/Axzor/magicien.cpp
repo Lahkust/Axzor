@@ -5,11 +5,19 @@ magicien::magicien()
 {
 	_vie = 0.0;
 	_velocite = 0.0;
+	this->set_x(0);
+	this->set_y(0);
+	this->set_renderer(NULL);
 }
 
 
 magicien::~magicien()
 {
+	_vie = 0.0;
+	_velocite = 0.0;
+	this->set_x(0);
+	this->set_y(0);
+	this->set_renderer(NULL);
 }
 
 

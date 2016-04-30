@@ -1,11 +1,12 @@
 #pragma once
 #include "SDL/SDL.h"
+#include "sprite.h"
 
-class bloc
+class bloc : public sprite
 {
 public:
 	bloc();
 	~bloc();
-	bloc(int x, int y, SDL_Renderer* render);
+	bloc(int x, int y, char type, SDL_Renderer* renderer);
+	void setRenderer(SDL_Renderer *renderer);
 };
-

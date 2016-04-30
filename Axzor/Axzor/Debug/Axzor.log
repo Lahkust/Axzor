@@ -1,9 +1,7 @@
-﻿Build started 2016-04-28 22:51:36.
+﻿Build started 2016-04-29 08:40:34.
      1>Project "C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Axzor\Axzor.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ennemi.cpp magicien.cpp main.cpp potion.cpp sprite.cpp staff.cpp
-         sprite.cpp
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\sprite.cpp(65): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ennemi.cpp magicien.cpp main.cpp
          main.cpp
      1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(65): error C2065: 'LARGEUR_FENETRE' : undeclared identifier
      1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(65): error C2065: 'HAUTEUR_FENETRE' : undeclared identifier
@@ -11,17 +9,13 @@
      1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(12): error C2061: syntax error : identifier 'bloc'
          ennemi.cpp
      1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(12): error C2061: syntax error : identifier 'bloc'
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(8): error C3861: 'renderer': identifier not found
      1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(23): error C2039: 'set_type' : is not a member of 'ennemi'
                  c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(3) : see declaration of 'ennemi'
      1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(28): error C2511: 'bool ennemi::collision(bloc)' : overloaded member function not found in 'ennemi'
                  c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(3) : see declaration of 'ennemi'
          Generating Code...
-         Skipping... (no relevant changes detected)
-         staff.cpp
-         potion.cpp
      1>Done Building Project "C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Axzor\Axzor.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:02.05
+Time Elapsed 00:00:01.46

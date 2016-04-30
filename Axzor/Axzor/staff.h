@@ -1,11 +1,7 @@
 
 #pragma once
 
-#include <iostream>
-#include <stdio.h>
-#include <string>
-#include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
+
 #include "LTexture.h"
 #include "sprite.h"
 
@@ -27,7 +23,7 @@ public:
 
 private:
 
-
+	const 
 
 	int _position_x;
 	int _position_y;
