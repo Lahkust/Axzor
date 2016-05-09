@@ -1,5 +1,8 @@
 #pragma once
 #include "sprite.h"
+
+const float POINTS_VIE_POTION = 2.0;
+
 class potion: public sprite
 {
 public:

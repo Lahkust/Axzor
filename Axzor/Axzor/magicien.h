@@ -5,6 +5,8 @@
 #include "bloc.h"
 #include "potion.h"
 
+const float POINTS_DEGATS_ME = 0.5;
+
 class magicien: public sprite
 {
 public:
@@ -13,7 +15,7 @@ public:
 private:
 	staff _baton;
 	float _vie;
-	float _velocite;
+	SDL_Point _velocite;
 public:
 	magicien(int x, int y, SDL_Renderer* renderer);
 private:

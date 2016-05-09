@@ -4,7 +4,8 @@
 magicien::magicien()
 {
 	_vie = 10.0;
-	_velocite = 0.0;
+	_velocite.x = 0;
+	_velocite.y = 0;
 	_position.x = 0;
 	_position.y = 0;
 	set_renderer(NULL);
@@ -14,7 +15,8 @@ magicien::magicien()
 magicien::~magicien()
 {
 	_vie = 0.0;
-	_velocite = 0.0;
+	_velocite.x = 0;
+	_velocite.y = 0;
 	_position.x = 0;
 	_position.y = 0;
 	set_renderer(NULL);
@@ -24,7 +26,8 @@ magicien::~magicien()
 magicien::magicien(int x, int y, SDL_Renderer* render)
 {
 	_vie = 10.0;
-	_velocite = 0.0;
+	_velocite.x = 0;
+	_velocite.y = 0;
 	_position.x = x;
 	_position.y = y;
 	set_renderer(render);
@@ -45,7 +48,7 @@ void magicien::augmenter_vie(int pv)
 
 bool magicien::collision(ennemi badguy)
 {
-	if (detecter_collision(this->get_rect(), badguy.get_rect()) != '0')
+	if (detecter_collision(this->get_rect(), badguy.get_rect()) != 'F')
 	{
 		this->reduire_vie(POINTS_DEGATS_ME);
 		return true;
@@ -62,18 +65,20 @@ bool magicien::collision(bloc lebloc)
 	switch (detecter_collision(this->get_rect(), lebloc.get_rect()))
 	{
 	case '0':
-		this->_velocite = 1; //Pas de bloc; tomber
+		this->_velocite.y = 1; //Pas de bloc; tomber
 		break; 
 	case 'h':
-		this->_velocite = 0; //Bloc en haut; stopper le saut
+		this->_velocite.y = 0; //Bloc en haut; stopper le saut
 		break; 
 	case 'b':
-		this->_velocite = 0; //Bloc en bas; stopper la chute
+		this->_velocite.y = 0; //Bloc en bas; stopper la chute
 		break; 
 	case 'g':
+		this->_velocite.x = 0;
 		return true; // Bloc sur le côté gauche
 		break;
 	case 'd':
+		this->_velocite.x = 0;
 		return true; // Bloc sur le côté droit
 		break;
 	default:

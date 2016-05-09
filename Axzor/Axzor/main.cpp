@@ -21,13 +21,26 @@ Commentaires :
 #include <stdlib.h> 
 #include <time.h>
 #include <vector>
+#include <map>
+#include <iomanip>
+#include <iostream>
+#include <fstream>
 
+#include "bloc.h"
+#include "ennemi.h"
+#include "magicien.h"
+#include "potion.h"
+#include "sprite.h"
+#include "staff.h"
 
 //***************************************** Prototypes
 bool init();
 bool loadMedia();
 void close();
 SDL_Texture* loadTexture(std::string path);
+void charger_niveau(const char[], std::vector< std::vector<sprite> > &niveau);
+bool testFichierExiste(const char[]);
+bool testFichierVide(const char[]);
 
 
 //********************************* Variables globales (partie 1)
@@ -120,7 +133,7 @@ bool loadMedia()
 	//Cette variable indique si le chargément de l'élément a été effectué avec succès
 	bool success = true;
 
-
+	/*
 
 	//Load balle sprite texture
 	if (!magicienTexture.loadFromFile("images/axzor_charset.png"))
@@ -178,7 +191,7 @@ bool loadMedia()
 		barreDRect.y = 0;
 	}
 
-
+	*/
 	return success;
 }
 
@@ -244,6 +257,10 @@ int main(int argc, char* args[])
 
 
 	//********VARIABLES*********\\
+	
+	
+
+	std::vector< std::vector<sprite> > level; // Le niveau lui-même
 
 	SDL_Event e;        //Cette variable nous permet de détecter l'événement courant que le programme doit gérer (click, touche du clavier, etc.)
 
@@ -374,4 +391,67 @@ int main(int argc, char* args[])
 
 	return 0;
 
+}
+
+void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite> > &niveau)
+{
+	std::ifstream entree; //Le flux d,entree
+	char lettre_actuelle; //La lettre actuellement traitee
+	int index_ligne = 0; //La lettre sur la ligne
+
+	if (testFichierExiste(nom_fichier)){
+		if (testFichierVide(nom_fichier))	//Teste si le fichier existe et qu'il n'est pas vide avant tout
+		{
+			entree.open(nom_fichier); //ouverture du fichier
+
+			int nb_lignes;
+			int largeur_ligne;
+
+			entree >> largeur_ligne;
+			entree >> nb_lignes;
+
+			for (int ligne = 0; ligne < nb_lignes; ++ligne)
+			{
+				for (int lettre = 0; lettre < largeur_ligne; ++lettre)
+				{
+					 entree.get(lettre_actuelle);
+
+					 std::cout << lettre_actuelle;
+				}
+				entree.get(lettre_actuelle); //ignorer le retour à la ligne
+				std::cout << lettre_actuelle;
+			}
+
+
+			entree.close(); //fermeture du fichier
+		}
+		else //Si le fichier est vide
+		{
+			std::cout << "Le fichier " << nom_fichier << " est vide!" << std::endl;
+		}
+	}
+	else //Si le fichier n'existe pas
+	{
+		std::cout << "Le fichier " << nom_fichier << " n'existe pas!" << std::endl;
+	}
+
+
+}
+
+
+bool testFichierExiste(const char nomFichier[30])
+{
+	std::ifstream fichier(nomFichier);
+	if (fichier.good()){ fichier.close(); return true; }
+	else{ fichier.close(); return false; }
+}
+
+bool testFichierVide(const char nomFichier[30])
+{
+	bool sortie = false; //variable de sortie
+	std::ifstream fichier(nomFichier); //ouvrir le fichier
+	fichier.seekg(0, fichier.end); //aller a la fin
+	if (fichier.tellg() > 0) sortie = true; // si le nb de caractères est superieur a zero, retourner vrai
+	fichier.close(); //fermer le fichier
+	return sortie;
 }
