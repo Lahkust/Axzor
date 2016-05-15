@@ -758,38 +758,146 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 
 					case'5':
 						//bloc centre
+
+						////type
+						//lebloc.set_type('5');
+
+						////position
+						//point.x = lettre * LARGEUR_BLOC;
+						//point.y = ligne * HAUTEUR_BLOC;
+						//lebloc.set_position(point);
+
+						////Placer le bloc dans le vecteur
+						//niveau.at(ligne).push_back(lebloc);
+
 						break;
 
 					case'7':
 						//bloc haut gauche
+
+						////type
+						//lebloc.set_type('7');
+
+						////position
+						//point.x = lettre * LARGEUR_BLOC;
+						//point.y = ligne * HAUTEUR_BLOC;
+						//lebloc.set_position(point);
+
+						////Placer le bloc dans le vecteur
+						//niveau.at(ligne).push_back(lebloc);
+
 						break;
 
 					case'8':
 						//bloc haut centre
+
+						////type
+						//lebloc.set_type('8');
+
+						////position
+						//point.x = lettre * LARGEUR_BLOC;
+						//point.y = ligne * HAUTEUR_BLOC;
+						//lebloc.set_position(point);
+
+						////Placer le bloc dans le vecteur
+						//niveau.at(ligne).push_back(lebloc);
+
 						break;
 
 					case'9':
 						//bloc haut droite
+
+						////type
+						//lebloc.set_type('9');
+
+						////position
+						//point.x = lettre * LARGEUR_BLOC;
+						//point.y = ligne * HAUTEUR_BLOC;
+						//lebloc.set_position(point);
+
+						////Placer le bloc dans le vecteur
+						//niveau.at(ligne).push_back(lebloc);
+
 						break;
 
 					case'6':
 						//bloc droite
+
+						////type
+						//lebloc.set_type('6');
+
+						////position
+						//point.x = lettre * LARGEUR_BLOC;
+						//point.y = ligne * HAUTEUR_BLOC;
+						//lebloc.set_position(point);
+
+						////Placer le bloc dans le vecteur
+						//niveau.at(ligne).push_back(lebloc);
+
 						break;
 
 					case'3':
 						//bloc bas droite
+
+						////type
+						//lebloc.set_type('3');
+
+						////position
+						//point.x = lettre * LARGEUR_BLOC;
+						//point.y = ligne * HAUTEUR_BLOC;
+						//lebloc.set_position(point);
+
+						////Placer le bloc dans le vecteur
+						//niveau.at(ligne).push_back(lebloc);
+
 						break;
 
 					case'2':
 						//bloc bas
+
+						////type
+						//lebloc.set_type('2');
+
+						////position
+						//point.x = lettre * LARGEUR_BLOC;
+						//point.y = ligne * HAUTEUR_BLOC;
+						//lebloc.set_position(point);
+
+						////Placer le bloc dans le vecteur
+						//niveau.at(ligne).push_back(lebloc);
+
 						break;
 
 					case'1':
 						//bloc bas gauche
+
+						////type
+						//lebloc.set_type('1');
+
+						////position
+						//point.x = lettre * LARGEUR_BLOC;
+						//point.y = ligne * HAUTEUR_BLOC;
+						//lebloc.set_position(point);
+
+						////Placer le bloc dans le vecteur
+						//niveau.at(ligne).push_back(lebloc);
+
 						break;
 
 					case'4':
 						//bloc gauche
+
+						////type
+						//lebloc.set_type('4');
+
+						////position
+						//point.x = lettre * LARGEUR_BLOC;
+						//point.y = ligne * HAUTEUR_BLOC;
+						//lebloc.set_position(point);
+
+						////Placer le bloc dans le vecteur
+						//niveau.at(ligne).push_back(lebloc);
+
 						break;
 
 					case'P':
@@ -804,8 +912,6 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						niveau.at(ligne).push_back(lapotion);
 
 						break;
-
-
 
 					default:
 						//Sinon, insérer le caractère comme étant un sprite vide
