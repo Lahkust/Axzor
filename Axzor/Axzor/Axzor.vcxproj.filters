@@ -21,7 +21,19 @@
     <ClCompile Include="sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Ltexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="projectile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="staff.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="bloc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ennemi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="magicien.cpp">
@@ -30,36 +42,30 @@
     <ClCompile Include="potion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ennemi.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ltexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="staff.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="projectile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="staff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="bloc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ennemi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="magicien.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="potion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ennemi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LTexture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="staff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

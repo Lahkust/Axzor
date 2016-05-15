@@ -56,6 +56,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2main.lib;SDL2test.lib;SDL2_mixer.lib;SDL2_image.lib;SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -82,6 +83,7 @@
     <ClCompile Include="magicien.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="potion.cpp" />
+    <ClCompile Include="projectile.cpp" />
     <ClCompile Include="sprite.cpp" />
     <ClCompile Include="staff.cpp" />
   </ItemGroup>
@@ -91,6 +93,7 @@
     <ClInclude Include="LTexture.h" />
     <ClInclude Include="magicien.h" />
     <ClInclude Include="potion.h" />
+    <ClInclude Include="projectile.h" />
     <ClInclude Include="sprite.h" />
     <ClInclude Include="staff.h" />
   </ItemGroup>

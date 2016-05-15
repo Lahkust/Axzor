@@ -1,21 +1,21 @@
-﻿Build started 2016-04-29 08:40:34.
-     1>Project "C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Axzor\Axzor.vcxproj" on node 2 (Build target(s)).
+﻿La génération a démarré 2016-05-10 10:20:43.
+     1>Projet "I:\CPP\Projet_final\Axzor\Axzor\Axzor\Axzor.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ennemi.cpp magicien.cpp main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(65): error C2065: 'LARGEUR_FENETRE' : undeclared identifier
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\main.cpp(65): error C2065: 'HAUTEUR_FENETRE' : undeclared identifier
-         magicien.cpp
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(12): error C2061: syntax error : identifier 'bloc'
-         ennemi.cpp
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(12): error C2061: syntax error : identifier 'bloc'
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(23): error C2039: 'set_type' : is not a member of 'ennemi'
-                 c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(3) : see declaration of 'ennemi'
-     1>c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.cpp(28): error C2511: 'bool ennemi::collision(bloc)' : overloaded member function not found in 'ennemi'
-                 c:\users\nikel\documents\github\axzor\axzor\axzor\ennemi.h(3) : see declaration of 'ennemi'
-         Generating Code...
-     1>Done Building Project "C:\Users\nikel\Documents\GitHub\Axzor\Axzor\Axzor\Axzor.vcxproj" (Build target(s)) -- FAILED.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"I:\CPP\Projet_final\Axzor\Axzor\Debug\Axzor.exe" /INCREMENTAL /NOLOGO SDL2main.lib SDL2test.lib SDL2_mixer.lib SDL2_image.lib SDL2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"I:\CPP\Projet_final\Axzor\Axzor\Debug\Axzor.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"I:\CPP\Projet_final\Axzor\Axzor\Debug\Axzor.lib" /MACHINE:X86 Debug\bloc.obj
+         Debug\ennemi.obj
+         Debug\Ltexture.obj
+         Debug\magicien.obj
+         Debug\main.obj
+         Debug\potion.obj
+         Debug\projectile.obj
+         Debug\sprite.obj
+         Debug\staff.obj
+         Axzor.vcxproj -> I:\CPP\Projet_final\Axzor\Axzor\Debug\Axzor.exe
+     1>Génération du projet "I:\CPP\Projet_final\Axzor\Axzor\Axzor\Axzor.vcxproj" terminée (Build cible(s)).
 
-Build FAILED.
+La génération a réussi.
 
-Time Elapsed 00:00:01.46
+Temps écoulé 00:00:01.40

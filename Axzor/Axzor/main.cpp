@@ -1,7 +1,7 @@
 /* En-tête du programme
 *****************************************
 Fichier :			main.cpp
-Auteur:				Guillaume Bergs & Shawn Corriveau
+Auteur:				Guillaume Bergs & Mylène Desrosiers
 Date de création :  2016/01/01
 Description :		Fonction principale du jeu Barkanoid
 Commentaires :
@@ -32,6 +32,7 @@ Commentaires :
 #include "potion.h"
 #include "sprite.h"
 #include "staff.h"
+#include "projectile.h"
 
 //***************************************** Prototypes
 bool init();
@@ -41,6 +42,7 @@ SDL_Texture* loadTexture(std::string path);
 void charger_niveau(const char[], std::vector< std::vector<sprite> > &niveau);
 bool testFichierExiste(const char[]);
 bool testFichierVide(const char[]);
+void ApparaitreProjectile(std::vector<projectile> &vecteurProjectile, char type);
 
 
 //********************************* Variables globales (partie 1)
@@ -53,8 +55,44 @@ SDL_Renderer* rendererFenetre = NULL;
 
 //***********************************
 
+//***********************************//CONSTANTES//*************************************//
+
+//const int LARGEUR_FENETRE = 900;			 // Largeur de la fenêtre
+//const int HAUTEUR_FENETRE = 550;			 // Hauteur de la fenêtre
+const int LARGEUR_MAGICIEN = 50;			 // Hauteur du magicien
+const int HAUTEUR_MAGICIEN = 80;			 // Largeur du magicien
+const int LARGEUR_CHARSET_MAGICIEN = 300;	 // Largeur du charset magicien
+const int HAUTEUR_CHARSET_MAGICIEN = 400;	 // Hauteur du charset magicien
+const int LARGEUR_PROJECTILE = 25;			 // Largeur du projectile
+const int HAUTEUR_PROJECTILE = 15;			 // Hauteur du projectile
+const int LARGEUR_CHARSET_PROJECTILE = 50;	 // Largeur du charset projectile
+const int HAUTEUR_CHARSET_PROJECTILE = 60;	 // Hauteur du charset projectile
+const int LARGEUR_BLOC = 50;			 	 // Hauteur du bloc
+const int HAUTEUR_BLOC = 50;				 // Largeur du bloc
+const int LARGEUR_CHARSET_BLOC = 450;		 // Largeur du charset bloc
+const int HAUTEUR_CHARSET_BLOC = 150;		 // Hauteur du charset bloc
+const int LARGEUR_ENNEMI = 50;				 // Hauteur d’un ennemi
+const int HAUTEUR_ENNEMI = 50;				 // Largeur d’un ennemi
+const int LARGEUR_CHARSET_ENNEMI = 300;		 // Largeur du charset ennemi
+const int HAUTEUR_CHARSET_ENNEMI = 200;		 // Hauteur du charset ennemi
+const int LARGEUR_POTION = 30;				 // Hauteur de la potion de soin
+const int HAUTEUR_POTION = 50;				 // Largeur de la potion de soin
+const int LARGEUR_STAFF = 25;				 // Hauteur du staff
+const int HAUTEUR_STAFF = 60;				 // Largeur du staff
+const int LARGEUR_CHARSET_STAFF = 25;		 // Largeur du charset staff
+const int HAUTEUR_CHARSET_STAFF = 300;		 // Hauteur du charset staff
+const int VITESSE_PERSONNAGE = 1;			 // Vitesse de déplacement du personnage, horizontalement
+const int VITESSE_PROJECTILE = 2;			 // Vitesse de déplacement d’un projectile, horizontalement
+const int VITESSE_ENNEMI = 3;				 // Vitesse de déplacement d’un ennemi, horizontalement
+const double GRAVITE = 9.81;				 // Constante de gravité
+const double POINTS_DEGATS_EP = 2;			 // points de dégâts infligés à l’ennemi lorsqu’il est percuté par un projectile.
+const double DEMI = 0.5;					 // gravité*temps depuis le début du saut divisé en deux.
+//const double POINTS_DEGATS_ME = 0.1;		 // points de dégâts infligés au magicien lorsqu’il est percuté par un ennemi.
 
 
+
+
+sprite wut;
 
 
 
@@ -130,68 +168,80 @@ bool init()
 //Cette fonction est utilisée pour charger les images du programme dans leurs textures correspondantes
 bool loadMedia()
 {
-	//Cette variable indique si le chargément de l'élément a été effectué avec succès
+	////Cette variable indique si le chargément de l'élément a été effectué avec succès
 	bool success = true;
 
-	/*
 
-	//Load balle sprite texture
-	if (!magicienTexture.loadFromFile("images/axzor_charset.png"))
-	{
-		printf("Échec de chargement de l'image ! \n");
-		success = false;
-	}
-	else
-	{
-		magicienRect.h = HAUTEUR_IMAGE_BALLE;
-		magicienRect.w = LARGEUR_IMAGE_BALLE;
-		magicienRect.x = 0;
-		magicienRect.y = 0;
-	}
 
-	//Load sprite barre G texture
-	if (!barreGTexture.loadFromFile("images/barreGauche.png"))
-	{
-		printf("Échec de chargement de l'image ! \n");
-		success = false;
-	}
-	else
-	{
-		barreGRect.h = HAUTEUR_IMAGE_BARRE_G;
-		barreGRect.w = LARGEUR_IMAGE_BARRE_G;
-		barreGRect.x = 0;
-		barreGRect.y = 0;
-	}
 
-	//Load sprite barre M texture
-	if (!barreMTexture.loadFromFile("images/barreMilieu.png"))
-	{
-		printf("Échec de chargement de l'image ! \n");
-		success = false;
-	}
-	else
-	{
-		barreMRect.h = HAUTEUR_IMAGE_BARRE_M;
-		barreMRect.w = LARGEUR_IMAGE_BARRE_M;
-		barreMRect.x = 0;
-		barreMRect.y = 0;
-	}
+	wut.set_renderer(rendererFenetre);
+	wut.set_position(SDL_Point{ 25, 25 });
+	std::cout << wut.chargerTexture("images/axzor_charset.png");
+	wut.set_hauteur(80);
+	wut.set_largeur(80);
+	
 
-	//Load sprite barre D texture
-	if (!barreDTexture.loadFromFile("images/barreDroite.png"))
-	{
-		printf("Échec de chargement de l'image ! \n");
-		success = false;
-	}
-	else
-	{
-		barreDRect.h = HAUTEUR_IMAGE_BARRE_D;
-		barreDRect.w = LARGEUR_IMAGE_BARRE_D;
-		barreDRect.x = 0;
-		barreDRect.y = 0;
-	}
 
-	*/
+
+	//
+
+	////Load balle sprite texture
+	//if (!magicienTexture.loadFromFile("images/axzor_charset.png"))
+	//{
+	//	printf("Échec de chargement de l'image ! \n");
+	//	success = false;
+	//}
+	//else
+	//{
+	//	magicienRect.h = HAUTEUR_IMAGE_BALLE;
+	//	magicienRect.w = LARGEUR_IMAGE_BALLE;
+	//	magicienRect.x = 0;
+	//	magicienRect.y = 0;
+	//}
+
+	////Load sprite barre G texture
+	//if (!projectile::projectile_texture.loadFromFile("images/projectile.png"))
+	//{
+	//	printf("Échec de chargement de l'image ! \n");
+	//	success = false;
+	//}
+	//else
+	//{
+	//	barreGRect.h = HAUTEUR_IMAGE_BARRE_G;
+	//	barreGRect.w = LARGEUR_IMAGE_BARRE_G;
+	//	barreGRect.x = 0;
+	//	barreGRect.y = 0;
+	//}
+
+	////Load sprite barre M texture
+	//if (!barreMTexture.loadFromFile("images/barreMilieu.png"))
+	//{
+	//	printf("Échec de chargement de l'image ! \n");
+	//	success = false;
+	//}
+	//else
+	//{
+	//	barreMRect.h = HAUTEUR_IMAGE_BARRE_M;
+	//	barreMRect.w = LARGEUR_IMAGE_BARRE_M;
+	//	barreMRect.x = 0;
+	//	barreMRect.y = 0;
+	//}
+
+	////Load sprite barre D texture
+	//if (!barreDTexture.loadFromFile("images/barreDroite.png"))
+	//{
+	//	printf("Échec de chargement de l'image ! \n");
+	//	success = false;
+	//}
+	//else
+	//{
+	//	barreDRect.h = HAUTEUR_IMAGE_BARRE_D;
+	//	barreDRect.w = LARGEUR_IMAGE_BARRE_D;
+	//	barreDRect.x = 0;
+	//	barreDRect.y = 0;
+	//}
+
+	//
 	return success;
 }
 
@@ -257,10 +307,6 @@ int main(int argc, char* args[])
 
 
 	//********VARIABLES*********\\
-	
-	
-
-	std::vector< std::vector<sprite> > level; // Le niveau lui-même
 
 	SDL_Event e;        //Cette variable nous permet de détecter l'événement courant que le programme doit gérer (click, touche du clavier, etc.)
 
@@ -356,7 +402,7 @@ int main(int argc, char* args[])
 
 
 				//Clear screen
-				SDL_RenderClear(rendererFenetre);
+			/*	SDL_RenderClear(rendererFenetre);*/
 
 				//*************RENDER DES TRUCS***************\\
 										//hommeTexture.render(positionHommeX, positionHommeY, currentHommeRect);
@@ -372,6 +418,11 @@ int main(int argc, char* args[])
 				//		blocs[i][j].blocTexture.render(bX,bY,&blocs[i][j].getRect());
 				//	}
 
+
+
+
+
+				wut.render();
 
 				//Update screen
 				SDL_RenderPresent(rendererFenetre);
@@ -393,6 +444,7 @@ int main(int argc, char* args[])
 
 }
 
+
 void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite> > &niveau)
 {
 	std::ifstream entree; //Le flux d,entree
@@ -403,20 +455,195 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 		if (testFichierVide(nom_fichier))	//Teste si le fichier existe et qu'il n'est pas vide avant tout
 		{
 			entree.open(nom_fichier); //ouverture du fichier
+			
+			// Variables contenant les dimensions duu niveau
+			int nb_lignes = 0;
+			int largeur_ligne = 0;
 
-			int nb_lignes;
-			int largeur_ligne;
+			// Variables temporaires pour créer de noyuvelles lignes, lettres, sprites vides
 
+			std::vector<sprite> nouvelle_ligne;
+			sprite sprite_vide;
+			magicien axzor;
+			SDL_Point point;
+
+
+			// Lire les dimensions du niveau
 			entree >> largeur_ligne;
 			entree >> nb_lignes;
 
+			//Pour chaque ligne du fichier
 			for (int ligne = 0; ligne < nb_lignes; ++ligne)
 			{
+				//Ajouter une nouvelle ligne
+				niveau.push_back(nouvelle_ligne);
+
+				//Pour chaque lettre de cette ligne
 				for (int lettre = 0; lettre < largeur_ligne; ++lettre)
 				{
-					 entree.get(lettre_actuelle);
+					//Lire la lettre
+					entree.get(lettre_actuelle);
 
-					 std::cout << lettre_actuelle;
+					//Interpréter la lettre
+
+					//vide: _
+					//bloc vide délimitation = .
+					//bloc vide "espace réservé" = :
+					//magicien = m
+					//ennemi feu droite = F
+					//ennemi feu gauche = f
+					//ennemi eau droite = E
+					//ennemi eau gauche = e
+					//ennemi terre droite = T
+					//ennemi terre gauche = t
+					//ennemi foudre droite = V
+					//ennemi foudre gauche = v
+					//staff feu = !
+					//staff eau = @
+					//staff terre = £
+					//staff foudre = $
+					//bloc centre = 5
+					//bloc haut gauche = 7
+					//bloc haut centre = 8
+					//bloc haut droite = 9
+					//bloc droite = 6
+					//bloc bas droite = 3
+					//bloc bas = 2
+					//bloc bas gauche = 1
+					//bloc gauche = 4
+					//potion = P
+
+					switch (lettre_actuelle)
+					{
+
+
+
+					case'_':
+						//vide
+						niveau.at(ligne).push_back(sprite_vide);
+						break;
+
+					case'.':
+						//bloc vide délimitation
+
+
+
+						break;
+
+					case':':
+						//bloc vide "espace réservé"
+						niveau.at(ligne).push_back(sprite_vide);
+						break;
+
+					case 'm':
+						//Le magicien
+
+						//Prendre sa position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						axzor.set_position(point);
+
+						//Placer le magicien dans le vecteur
+						niveau.at(ligne).push_back(axzor);
+						break;
+
+					case'F':
+						//ennemi feu droite
+						break;
+
+					case'f':
+						//ennemi feu gauche
+						break;
+
+					case'E':
+						//ennemi eau droite
+						break;
+
+					case'e':
+						//ennemi eau gauche
+						break;
+
+					case'T':
+						//ennemi terre droite
+						break;
+
+					case't':
+						//ennemi terre gauche
+						break;
+
+					case'V':
+						//ennemi foudre droite
+						break;
+
+					case'v':
+						//ennemi foudre gauche
+						break;
+
+					case'!':
+						//staff feu
+						break;
+
+					case'@':
+						//staff eau
+						break;
+
+					case'£':
+						//staff terre
+						break;
+
+					case'$':
+						//staff foudre
+						break;
+
+					case'5':
+						//bloc centre
+						break;
+
+					case'7':
+						//bloc haut gauche
+						break;
+
+					case'8':
+						//bloc haut centre
+						break;
+
+					case'9':
+						//bloc haut droite
+						break;
+
+					case'6':
+						//bloc droite
+						break;
+
+					case'3':
+						//bloc bas droite
+						break;
+
+					case'2':
+						//bloc bas
+						break;
+
+					case'1':
+						//bloc bas gauche
+						break;
+
+					case'4':
+						//bloc gauche
+						break;
+
+					case'P':
+						//potion
+						break;
+
+
+
+					default:
+						//Sinon, insérer le caractère comme étant un sprite vide
+						niveau.at(ligne).push_back(sprite_vide);
+						break;
+					}
+
+					std::cout << lettre_actuelle;
 				}
 				entree.get(lettre_actuelle); //ignorer le retour à la ligne
 				std::cout << lettre_actuelle;
@@ -455,3 +682,19 @@ bool testFichierVide(const char nomFichier[30])
 	fichier.close(); //fermer le fichier
 	return sortie;
 }
+
+
+
+
+
+
+
+
+
+void ApparaitreProjectile(std::vector<projectile> &vecteurProjectile, char type){
+//
+//
+//	//vecteurProjectile.push_back(projectile(SDL_Rect{ 0, 0, TAILLE_PROJECTILE_X, TAILLE_PROJECTILE_Y }), rendererFenetre, type);		//Largeur de la fenêtre / 2 parce que la position en x de la balle sera toujours le centre de l'axe des x
+//
+}
+

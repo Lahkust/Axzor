@@ -1,0 +1,32 @@
+vide : _
+bloc vide délimitation = .
+bloc vide "espace réservé" = :
+magicien = m
+ennemi feu droite = F
+ennemi feu gauche = f
+ennemi eau droite = E
+ennemi eau gauche = e
+ennemi terre droite = T
+ennemi terre gauche = t
+ennemi foudre droite = V
+ennemi foudre gauche = v
+staff feu = !
+staff eau = @
+staff terre = £
+staff foudre = $
+bloc centre = 5
+bloc haut gauche = 7
+bloc haut centre = 8
+bloc haut droite = 9
+bloc droite = 6
+bloc bas droite = 3
+bloc bas = 2
+bloc bas gauche = 1
+bloc gauche = 4
+potion = P
+
+
+
+_direction = d (si bouge vers la droite) et g (si bouge vers la gauche)
+Ex: ennemi terre gauche (dont le symbole est 't' dans le fichier de niveau) aura pour direction 'g')
+
