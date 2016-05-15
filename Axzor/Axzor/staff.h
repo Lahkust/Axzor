@@ -1,4 +1,11 @@
-
+/* En-tête du programme
+*****************************************
+Fichier :			staff.h
+Auteur:				Mylène Desrosiers
+Date de création :  
+Description :		
+Commentaires :
+*****************************************/
 #pragma once
 
 

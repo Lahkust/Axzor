@@ -57,30 +57,7 @@ SDL_Renderer* rendererFenetre = NULL;
 
 //***********************************//CONSTANTES//*************************************//
 
-//const int LARGEUR_FENETRE = 900;			 // Largeur de la fenêtre
-//const int HAUTEUR_FENETRE = 550;			 // Hauteur de la fenêtre
-const int LARGEUR_MAGICIEN = 50;			 // Hauteur du magicien
-const int HAUTEUR_MAGICIEN = 80;			 // Largeur du magicien
-const int LARGEUR_CHARSET_MAGICIEN = 300;	 // Largeur du charset magicien
-const int HAUTEUR_CHARSET_MAGICIEN = 400;	 // Hauteur du charset magicien
-const int LARGEUR_PROJECTILE = 25;			 // Largeur du projectile
-const int HAUTEUR_PROJECTILE = 15;			 // Hauteur du projectile
-const int LARGEUR_CHARSET_PROJECTILE = 50;	 // Largeur du charset projectile
-const int HAUTEUR_CHARSET_PROJECTILE = 60;	 // Hauteur du charset projectile
-const int LARGEUR_BLOC = 50;			 	 // Hauteur du bloc
-const int HAUTEUR_BLOC = 50;				 // Largeur du bloc
-const int LARGEUR_CHARSET_BLOC = 450;		 // Largeur du charset bloc
-const int HAUTEUR_CHARSET_BLOC = 150;		 // Hauteur du charset bloc
-const int LARGEUR_ENNEMI = 50;				 // Hauteur d’un ennemi
-const int HAUTEUR_ENNEMI = 50;				 // Largeur d’un ennemi
-const int LARGEUR_CHARSET_ENNEMI = 300;		 // Largeur du charset ennemi
-const int HAUTEUR_CHARSET_ENNEMI = 200;		 // Hauteur du charset ennemi
-const int LARGEUR_POTION = 30;				 // Hauteur de la potion de soin
-const int HAUTEUR_POTION = 50;				 // Largeur de la potion de soin
-const int LARGEUR_STAFF = 25;				 // Hauteur du staff
-const int HAUTEUR_STAFF = 60;				 // Largeur du staff
-const int LARGEUR_CHARSET_STAFF = 25;		 // Largeur du charset staff
-const int HAUTEUR_CHARSET_STAFF = 300;		 // Hauteur du charset staff
+
 const int VITESSE_PERSONNAGE = 1;			 // Vitesse de déplacement du personnage, horizontalement
 const int VITESSE_PROJECTILE = 2;			 // Vitesse de déplacement d’un projectile, horizontalement
 const int VITESSE_ENNEMI = 3;				 // Vitesse de déplacement d’un ennemi, horizontalement
@@ -466,6 +443,10 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 			sprite sprite_vide;
 			magicien axzor;
 			SDL_Point point;
+			ennemi badguy;
+			staff baton_magique;
+			bloc lebloc;
+			potion lapotion;
 
 
 			// Lire les dimensions du niveau
@@ -516,8 +497,6 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 					switch (lettre_actuelle)
 					{
 
-
-
 					case'_':
 						//vide
 						niveau.at(ligne).push_back(sprite_vide);
@@ -525,8 +504,6 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 
 					case'.':
 						//bloc vide délimitation
-
-
 
 						break;
 
@@ -549,50 +526,234 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 
 					case'F':
 						//ennemi feu droite
+						
+						//type
+						badguy.set_type('f');
+						
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						badguy.set_position(point);
+
+						//velocite
+						point.y = 0;
+						point.x = 1;
+						badguy.set_velocite(point);
+
+						//Placer l'ennemi dans le vecteur
+						niveau.at(ligne).push_back(badguy);
+
 						break;
 
 					case'f':
 						//ennemi feu gauche
+
+						//type
+						badguy.set_type('f');
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						badguy.set_position(point);
+
+						//velocite
+						point.y = 0;
+						point.x = -1;
+						badguy.set_velocite(point);
+
+						//Placer l'ennemi dans le vecteur
+						niveau.at(ligne).push_back(badguy);
+
 						break;
 
 					case'E':
 						//ennemi eau droite
+
+						//type
+						badguy.set_type('e');
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						badguy.set_position(point);
+
+						//velocite
+						point.y = 0;
+						point.x = 1;
+						badguy.set_velocite(point);
+
+						//Placer l'ennemi dans le vecteur
+						niveau.at(ligne).push_back(badguy);
+
 						break;
 
 					case'e':
 						//ennemi eau gauche
+
+						//type
+						badguy.set_type('e');
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						badguy.set_position(point);
+
+						//velocite
+						point.y = 0;
+						point.x = -1;
+						badguy.set_velocite(point);
+
+						//Placer l'ennemi dans le vecteur
+						niveau.at(ligne).push_back(badguy);
+
 						break;
 
 					case'T':
 						//ennemi terre droite
+
+						//type
+						badguy.set_type('t');
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						badguy.set_position(point);
+
+						//velocite
+						point.y = 0;
+						point.x = 1;
+						badguy.set_velocite(point);
+
+						//Placer l'ennemi dans le vecteur
+						niveau.at(ligne).push_back(badguy);
+
 						break;
 
 					case't':
 						//ennemi terre gauche
+
+						//type
+						badguy.set_type('t');
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						badguy.set_position(point);
+
+						//velocite
+						point.y = 0;
+						point.x = -1;
+						badguy.set_velocite(point);
+
+						//Placer l'ennemi dans le vecteur
+						niveau.at(ligne).push_back(badguy);
+
 						break;
 
 					case'V':
 						//ennemi foudre droite
+
+						//type
+						badguy.set_type('v');
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						badguy.set_position(point);
+
+						//velocite
+						point.y = 0;
+						point.x = 1;
+						badguy.set_velocite(point);
+
+						//Placer l'ennemi dans le vecteur
+						niveau.at(ligne).push_back(badguy);
+
 						break;
 
 					case'v':
 						//ennemi foudre gauche
+
+						//type
+						badguy.set_type('v');
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						badguy.set_position(point);
+
+						//velocite
+						point.y = 0;
+						point.x = -1;
+						badguy.set_velocite(point);
+
+						//Placer l'ennemi dans le vecteur
+						niveau.at(ligne).push_back(badguy);
+
 						break;
 
 					case'!':
 						//staff feu
+
+						//type
+						baton_magique.set_type('f');
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						baton_magique.set_position(point);
+
+						//Placer le staff dans le vecteur
+						niveau.at(ligne).push_back(baton_magique);
+
 						break;
 
 					case'@':
 						//staff eau
+
+						//type
+						baton_magique.set_type('e');
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						baton_magique.set_position(point);
+
+						//Placer le staff dans le vecteur
+						niveau.at(ligne).push_back(baton_magique);
+
 						break;
 
 					case'£':
 						//staff terre
+
+						//type
+						baton_magique.set_type('t');
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						baton_magique.set_position(point);
+
+						//Placer le staff dans le vecteur
+						niveau.at(ligne).push_back(baton_magique);
+
 						break;
 
 					case'$':
 						//staff foudre
+
+						//type
+						baton_magique.set_type('v');
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						baton_magique.set_position(point);
+
+						//Placer le staff dans le vecteur
+						niveau.at(ligne).push_back(baton_magique);
+
 						break;
 
 					case'5':
@@ -633,6 +794,15 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 
 					case'P':
 						//potion
+
+						//position
+						point.x = lettre * LARGEUR_BLOC;
+						point.y = ligne * HAUTEUR_BLOC;
+						lapotion.set_position(point);
+
+						//Placer le staff dans le vecteur
+						niveau.at(ligne).push_back(lapotion);
+
 						break;
 
 

@@ -16,8 +16,8 @@ Commentaires :
 #include "SDL/SDL_image.h"
 
 //Taille de l'écran en pixels
-const int LARGEUR_FENETRE = 600;
-const int HAUTEUR_FENETRE = 700;
+const int LARGEUR_FENETRE = 900;
+const int HAUTEUR_FENETRE = 550;
 const int FACTEUR_RALENTISSEMENT_ANIMATION = 10;  //Pour rendre l'animation plus rapide, indiquer un chiffre plus petit
 
 

@@ -1,10 +1,39 @@
-﻿La génération a démarré 2016-05-10 10:20:43.
-     1>Projet "I:\CPP\Projet_final\Axzor\Axzor\Axzor\Axzor.vcxproj" sur le nœud 2 (Build cible(s)).
+﻿La génération a démarré 2016-05-15 16:43:43.
+     1>Projet "D:\Work\CPP\Axzor\Axzor\Axzor\Axzor.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         G:\VisualStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt bloc.cpp ennemi.cpp magicien.cpp main.cpp potion.cpp projectile.cpp sprite.cpp staff.cpp
+         staff.cpp
          main.cpp
+         ennemi.cpp
+     1>d:\work\cpp\axzor\axzor\axzor\ennemi.cpp(47): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\ennemi.cpp(102): warning C4244: '-=' : conversion de 'double' en 'int', perte possible de données
+         Génération de code en cours...
+         Compilation en cours...
+         sprite.cpp
+     1>d:\work\cpp\axzor\axzor\axzor\sprite.cpp(105): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
+         projectile.cpp
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(56): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(61): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(66): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(78): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(89): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(94): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(106): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(112): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(122): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(134): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(140): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\projectile.cpp(145): warning C4244: '=' : conversion de 'const float' en 'int', perte possible de données
+         potion.cpp
+         magicien.cpp
+     1>d:\work\cpp\axzor\axzor\axzor\magicien.cpp(53): warning C4244: 'argument' : conversion de 'const float' en 'int', perte possible de données
+     1>d:\work\cpp\axzor\axzor\axzor\magicien.cpp(96): warning C4244: 'argument' : conversion de 'const float' en 'int', perte possible de données
+         bloc.cpp
+         Génération de code en cours...
+     1>d:\work\cpp\axzor\axzor\axzor\magicien.cpp(117): warning C4715: 'magicien::collision' : les chemins de contrôle ne retournent pas tous une valeur
+     1>d:\work\cpp\axzor\axzor\axzor\magicien.cpp(104): warning C4715: 'magicien::collision' : les chemins de contrôle ne retournent pas tous une valeur
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"I:\CPP\Projet_final\Axzor\Axzor\Debug\Axzor.exe" /INCREMENTAL /NOLOGO SDL2main.lib SDL2test.lib SDL2_mixer.lib SDL2_image.lib SDL2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"I:\CPP\Projet_final\Axzor\Axzor\Debug\Axzor.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"I:\CPP\Projet_final\Axzor\Axzor\Debug\Axzor.lib" /MACHINE:X86 Debug\bloc.obj
+         G:\VisualStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Work\CPP\Axzor\Axzor\Debug\Axzor.exe" /INCREMENTAL /NOLOGO SDL2main.lib SDL2test.lib SDL2_mixer.lib SDL2_image.lib SDL2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Work\CPP\Axzor\Axzor\Debug\Axzor.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Work\CPP\Axzor\Axzor\Debug\Axzor.lib" /MACHINE:X86 Debug\bloc.obj
          Debug\ennemi.obj
          Debug\Ltexture.obj
          Debug\magicien.obj
@@ -13,9 +42,9 @@
          Debug\projectile.obj
          Debug\sprite.obj
          Debug\staff.obj
-         Axzor.vcxproj -> I:\CPP\Projet_final\Axzor\Axzor\Debug\Axzor.exe
-     1>Génération du projet "I:\CPP\Projet_final\Axzor\Axzor\Axzor\Axzor.vcxproj" terminée (Build cible(s)).
+         Axzor.vcxproj -> D:\Work\CPP\Axzor\Axzor\Debug\Axzor.exe
+     1>Génération du projet "D:\Work\CPP\Axzor\Axzor\Axzor\Axzor.vcxproj" terminée (Build cible(s)).
 
 La génération a réussi.
 
-Temps écoulé 00:00:01.40
+Temps écoulé 00:00:07.64

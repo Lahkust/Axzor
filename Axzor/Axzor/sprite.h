@@ -1,3 +1,12 @@
+/* En-tête du programme
+*****************************************
+Fichier :			sprite.h
+Auteur:				Mylène Desrosiers
+Date de création :  
+Description :		
+Commentaires :
+*****************************************/
+
 #include <iostream>
 #include <stdio.h>
 #include <string>

@@ -208,3 +208,27 @@ bool ennemi::collision(ennemi badguy)
 
 	return false;
 }
+
+
+SDL_Point ennemi::get_velocite()
+{
+	return _velocite;
+}
+
+
+void ennemi::set_velocite(SDL_Point velocite)
+{
+	_velocite = velocite;
+}
+
+
+void ennemi::flip_horizontal()
+{
+	_velocite.x *= -1;
+}
+
+
+void ennemi::flip_vertical()
+{
+	_velocite.y *= -1;
+}
