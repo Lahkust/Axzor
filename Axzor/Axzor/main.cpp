@@ -39,11 +39,11 @@ bool init();
 bool loadMedia();
 void close();
 SDL_Texture* loadTexture(std::string path);
-void charger_niveau(const char[], std::vector< std::vector<sprite> > &niveau);
+void charger_niveau(const char[], std::vector< std::vector<sprite> > &niveau);	// Perrmet de charger un fichier .axz dans un vecteur de vecteurs de sprites
 bool testFichierExiste(const char[]);
 bool testFichierVide(const char[]);
 void ApparaitreProjectile(std::vector<projectile> &vecteurProjectile, char type);
-
+void afficher_niveau(const std::vector< std::vector<sprite> > &niveau, SDL_Point &reference); // Permet d'afficher à l'écran la partie pertinente d'un vecteur de vecteurs de sprites à l'aide des coordonnées du coin supérieur gauche
 
 //********************************* Variables globales (partie 1)
 
@@ -288,6 +288,14 @@ int main(int argc, char* args[])
 	SDL_Event e;        //Cette variable nous permet de détecter l'événement courant que le programme doit gérer (click, touche du clavier, etc.)
 
 	bool quit = false;  //flag pour la boucle principale. Elle permet de déterminer si l'on doit quitter le programme
+
+	SDL_Point reference;	//Coordonnées dans le niveau du pixel au bord supérieur gauche qui est affiché à l'écran
+	reference.x = 0;
+	reference.y = 0;
+
+	std::vector< std::vector< sprite > > niveau;	// Le niveau en tant que tel; un vecteur de sprites en deux dimensions, dont seule une partie est affichée en tout temps
+	charger_niveau("levels/tst.axz",niveau);
+
 	//DÉCLARATION DES CHARSETS
 
 
@@ -396,10 +404,10 @@ int main(int argc, char* args[])
 				//	}
 
 
+				afficher_niveau(niveau, reference); //Afficher la partie pertinente du niveau
 
 
-
-				wut.render();
+				/////wut.render();
 
 				//Update screen
 				SDL_RenderPresent(rendererFenetre);
@@ -439,14 +447,44 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 
 			// Variables temporaires pour créer de noyuvelles lignes, lettres, sprites vides
 
+			wut.set_renderer(rendererFenetre);
+			wut.set_hauteur(80);
+			wut.set_largeur(80);
+
 			std::vector<sprite> nouvelle_ligne;
+
 			sprite sprite_vide;
+			sprite_vide.set_renderer(rendererFenetre);
+			sprite_vide.set_hauteur(0);
+			sprite_vide.set_largeur(0);
+
 			magicien axzor;
+			axzor.set_renderer(rendererFenetre);
+			axzor.set_hauteur(HAUTEUR_MAGICIEN);
+			axzor.set_largeur(LARGEUR_MAGICIEN);
+
 			SDL_Point point;
+
+
 			ennemi badguy;
+			badguy.set_renderer(rendererFenetre);
+			badguy.set_hauteur(HAUTEUR_ENNEMI);
+			badguy.set_largeur(LARGEUR_ENNEMI);
+
 			staff baton_magique;
+			baton_magique.set_renderer(rendererFenetre);
+			baton_magique.set_hauteur(HAUTEUR_STAFF);
+			baton_magique.set_largeur(LARGEUR_STAFF);
+
 			bloc lebloc;
+			lebloc.set_renderer(rendererFenetre);
+			lebloc.set_hauteur(HAUTEUR_BLOC);
+			lebloc.set_largeur(LARGEUR_BLOC);
+
 			potion lapotion;
+			lapotion.set_renderer(rendererFenetre);
+			lapotion.set_hauteur(HAUTEUR_POTION);
+			lapotion.set_largeur(LARGEUR_POTION);
 
 
 			// Lire les dimensions du niveau
@@ -961,12 +999,6 @@ bool testFichierVide(const char nomFichier[30])
 
 
 
-
-
-
-
-
-
 void ApparaitreProjectile(std::vector<projectile> &vecteurProjectile, char type){
 //
 //
@@ -974,3 +1006,24 @@ void ApparaitreProjectile(std::vector<projectile> &vecteurProjectile, char type)
 //
 }
 
+void afficher_niveau(const std::vector< std::vector<sprite> > &niveau, SDL_Point &reference)
+{
+	//Pour chaque ligne du niveau
+	for (auto ligne : niveau)
+	{
+		//Pour chaque objet présente dans cette ligne
+		for (auto objet : ligne)
+		{
+			//Si la position de l'objet correspond à ce qui doit être affiché
+			if (
+				((objet.get_position().x >= reference.x) && (objet.get_position().y >= reference.y))
+				&&
+				((objet.get_position().x <= reference.x + LARGEUR_FENETRE) && (objet.get_position().y <= reference.y + HAUTEUR_FENETRE))
+				)
+			{
+				//alors l'afficher
+				objet.render();
+			}
+		}
+	}
+}
