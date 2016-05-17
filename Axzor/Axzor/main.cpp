@@ -39,11 +39,11 @@ bool init();
 bool loadMedia();
 void close();
 SDL_Texture* loadTexture(std::string path);
-void charger_niveau(const char[], std::vector< std::vector<sprite> > &niveau);	// Perrmet de charger un fichier .axz dans un vecteur de vecteurs de sprites
+void charger_niveau(const char[], std::vector< std::vector<sprite*> > &niveau);	// Perrmet de charger un fichier .axz dans un vecteur de vecteurs de sprites
 bool testFichierExiste(const char[]);
 bool testFichierVide(const char[]);
 void ApparaitreProjectile(std::vector<projectile> &vecteurProjectile, char type);
-void afficher_niveau(const std::vector< std::vector<sprite> > &niveau, SDL_Point &reference); // Permet d'afficher à l'écran la partie pertinente d'un vecteur de vecteurs de sprites à l'aide des coordonnées du coin supérieur gauche
+void afficher_niveau(const std::vector< std::vector<sprite*> > &niveau, SDL_Point &reference); // Permet d'afficher à l'écran la partie pertinente d'un vecteur de vecteurs de sprites à l'aide des coordonnées du coin supérieur gauche
 
 //********************************* Variables globales (partie 1)
 
@@ -293,7 +293,9 @@ int main(int argc, char* args[])
 	reference.x = 0;
 	reference.y = 0;
 
-	std::vector< std::vector< sprite > > niveau;	// Le niveau en tant que tel; un vecteur de sprites en deux dimensions, dont seule une partie est affichée en tout temps
+
+	sprite* element;
+	std::vector< std::vector< sprite* > > niveau;	// Le niveau en tant que tel; un vecteur de sprites en deux dimensions, dont seule une partie est affichée en tout temps
 	charger_niveau("levels/tst.axz",niveau);
 
 	//DÉCLARATION DES CHARSETS
@@ -387,8 +389,8 @@ int main(int argc, char* args[])
 
 
 				//Clear screen
-			/*	SDL_RenderClear(rendererFenetre);*/
-
+				SDL_RenderClear(rendererFenetre);
+				system("cls");
 				//*************RENDER DES TRUCS***************\\
 										//hommeTexture.render(positionHommeX, positionHommeY, currentHommeRect);
 
@@ -405,7 +407,6 @@ int main(int argc, char* args[])
 
 
 				afficher_niveau(niveau, reference); //Afficher la partie pertinente du niveau
-
 
 				/////wut.render();
 
@@ -430,7 +431,7 @@ int main(int argc, char* args[])
 }
 
 
-void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite> > &niveau)
+void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite*> > &niveau)
 {
 	std::ifstream entree; //Le flux d,entree
 	char lettre_actuelle; //La lettre actuellement traitee
@@ -447,11 +448,8 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 
 			// Variables temporaires pour créer de noyuvelles lignes, lettres, sprites vides
 
-			wut.set_renderer(rendererFenetre);
-			wut.set_hauteur(80);
-			wut.set_largeur(80);
 
-			std::vector<sprite> nouvelle_ligne;
+			std::vector<sprite*> nouvelle_ligne;
 
 			sprite sprite_vide;
 			sprite_vide.set_renderer(rendererFenetre);
@@ -462,7 +460,10 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 			axzor.set_renderer(rendererFenetre);
 			axzor.set_hauteur(HAUTEUR_MAGICIEN);
 			axzor.set_largeur(LARGEUR_MAGICIEN);
-
+			axzor.chargerTexture("images/prototype_axzor_charset.png");
+			/****************/
+			std::cout << axzor.get_hauteur() << std::endl;
+			/****************/
 			SDL_Point point;
 
 
@@ -496,6 +497,9 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 			{
 				//Ajouter une nouvelle ligne
 				niveau.push_back(nouvelle_ligne);
+
+
+				entree.get(lettre_actuelle); //ignorer le retour à la ligne
 
 				//Pour chaque lettre de cette ligne
 				for (int lettre = 0; lettre < largeur_ligne; ++lettre)
@@ -537,7 +541,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 
 					case'_':
 						//vide
-						niveau.at(ligne).push_back(sprite_vide);
+						niveau.at(ligne).push_back(new sprite(sprite_vide));
 						break;
 
 					case'.':
@@ -547,11 +551,12 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 
 					case':':
 						//bloc vide "espace réservé"
-						niveau.at(ligne).push_back(sprite_vide);
+						niveau.at(ligne).push_back(new sprite(sprite_vide));
 						break;
 
 					case 'm':
 						//Le magicien
+
 
 						//Prendre sa position
 						point.x = lettre * LARGEUR_BLOC;
@@ -559,7 +564,8 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						axzor.set_position(point);
 
 						//Placer le magicien dans le vecteur
-						niveau.at(ligne).push_back(axzor);
+						niveau.at(ligne).push_back(new magicien(axzor));
+
 						break;
 
 					case'F':
@@ -579,7 +585,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						badguy.set_velocite(point);
 
 						//Placer l'ennemi dans le vecteur
-						niveau.at(ligne).push_back(badguy);
+						niveau.at(ligne).push_back(new ennemi(badguy));
 
 						break;
 
@@ -600,7 +606,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						badguy.set_velocite(point);
 
 						//Placer l'ennemi dans le vecteur
-						niveau.at(ligne).push_back(badguy);
+						niveau.at(ligne).push_back(new ennemi(badguy));
 
 						break;
 
@@ -621,7 +627,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						badguy.set_velocite(point);
 
 						//Placer l'ennemi dans le vecteur
-						niveau.at(ligne).push_back(badguy);
+						niveau.at(ligne).push_back(new ennemi(badguy));
 
 						break;
 
@@ -642,7 +648,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						badguy.set_velocite(point);
 
 						//Placer l'ennemi dans le vecteur
-						niveau.at(ligne).push_back(badguy);
+						niveau.at(ligne).push_back(new ennemi(badguy));
 
 						break;
 
@@ -663,7 +669,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						badguy.set_velocite(point);
 
 						//Placer l'ennemi dans le vecteur
-						niveau.at(ligne).push_back(badguy);
+						niveau.at(ligne).push_back(new ennemi(badguy));
 
 						break;
 
@@ -684,7 +690,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						badguy.set_velocite(point);
 
 						//Placer l'ennemi dans le vecteur
-						niveau.at(ligne).push_back(badguy);
+						niveau.at(ligne).push_back(new ennemi(badguy));
 
 						break;
 
@@ -705,7 +711,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						badguy.set_velocite(point);
 
 						//Placer l'ennemi dans le vecteur
-						niveau.at(ligne).push_back(badguy);
+						niveau.at(ligne).push_back(new ennemi(badguy));
 
 						break;
 
@@ -726,7 +732,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						badguy.set_velocite(point);
 
 						//Placer l'ennemi dans le vecteur
-						niveau.at(ligne).push_back(badguy);
+						niveau.at(ligne).push_back(new ennemi(badguy));
 
 						break;
 
@@ -742,7 +748,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						baton_magique.set_position(point);
 
 						//Placer le staff dans le vecteur
-						niveau.at(ligne).push_back(baton_magique);
+						niveau.at(ligne).push_back(new staff(baton_magique));
 
 						break;
 
@@ -758,7 +764,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						baton_magique.set_position(point);
 
 						//Placer le staff dans le vecteur
-						niveau.at(ligne).push_back(baton_magique);
+						niveau.at(ligne).push_back(new staff(baton_magique));
 
 						break;
 
@@ -774,7 +780,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						baton_magique.set_position(point);
 
 						//Placer le staff dans le vecteur
-						niveau.at(ligne).push_back(baton_magique);
+						niveau.at(ligne).push_back(new staff(baton_magique));
 
 						break;
 
@@ -790,7 +796,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						baton_magique.set_position(point);
 
 						//Placer le staff dans le vecteur
-						niveau.at(ligne).push_back(baton_magique);
+						niveau.at(ligne).push_back(new staff(baton_magique));
 
 						break;
 
@@ -806,7 +812,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						//lebloc.set_position(point);
 
 						////Placer le bloc dans le vecteur
-						//niveau.at(ligne).push_back(lebloc);
+						//niveau.at(ligne).push_back(new bloc(lebloc));
 
 						break;
 
@@ -822,7 +828,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						//lebloc.set_position(point);
 
 						////Placer le bloc dans le vecteur
-						//niveau.at(ligne).push_back(lebloc);
+						//niveau.at(ligne).push_back(new bloc(lebloc));
 
 						break;
 
@@ -838,7 +844,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						//lebloc.set_position(point);
 
 						////Placer le bloc dans le vecteur
-						//niveau.at(ligne).push_back(lebloc);
+						//niveau.at(ligne).push_back(new bloc(lebloc));
 
 						break;
 
@@ -854,7 +860,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						//lebloc.set_position(point);
 
 						////Placer le bloc dans le vecteur
-						//niveau.at(ligne).push_back(lebloc);
+						//niveau.at(ligne).push_back(new bloc(lebloc));
 
 						break;
 
@@ -870,7 +876,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						//lebloc.set_position(point);
 
 						////Placer le bloc dans le vecteur
-						//niveau.at(ligne).push_back(lebloc);
+						//niveau.at(ligne).push_back(new bloc(lebloc));
 
 						break;
 
@@ -886,7 +892,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						//lebloc.set_position(point);
 
 						////Placer le bloc dans le vecteur
-						//niveau.at(ligne).push_back(lebloc);
+						//niveau.at(ligne).push_back(new bloc(lebloc));
 
 						break;
 
@@ -902,7 +908,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						//lebloc.set_position(point);
 
 						////Placer le bloc dans le vecteur
-						//niveau.at(ligne).push_back(lebloc);
+						//niveau.at(ligne).push_back(new bloc(lebloc));
 
 						break;
 
@@ -918,7 +924,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						//lebloc.set_position(point);
 
 						////Placer le bloc dans le vecteur
-						//niveau.at(ligne).push_back(lebloc);
+						//niveau.at(ligne).push_back(new bloc(lebloc));
 
 						break;
 
@@ -934,7 +940,7 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						//lebloc.set_position(point);
 
 						////Placer le bloc dans le vecteur
-						//niveau.at(ligne).push_back(lebloc);
+						//niveau.at(ligne).push_back(new bloc(lebloc));
 
 						break;
 
@@ -947,15 +953,16 @@ void charger_niveau(const char nom_fichier[30], std::vector< std::vector<sprite>
 						lapotion.set_position(point);
 
 						//Placer le staff dans le vecteur
-						niveau.at(ligne).push_back(lapotion);
+						niveau.at(ligne).push_back(new potion(lapotion));
 
 						break;
 
 					default:
 						//Sinon, insérer le caractère comme étant un sprite vide
-						niveau.at(ligne).push_back(sprite_vide);
+						niveau.at(ligne).push_back(new sprite(sprite_vide));
 						break;
 					}
+
 
 					std::cout << lettre_actuelle;
 				}
@@ -1006,7 +1013,7 @@ void ApparaitreProjectile(std::vector<projectile> &vecteurProjectile, char type)
 //
 }
 
-void afficher_niveau(const std::vector< std::vector<sprite> > &niveau, SDL_Point &reference)
+void afficher_niveau(const std::vector< std::vector<sprite*> > &niveau, SDL_Point &reference)
 {
 	//Pour chaque ligne du niveau
 	for (auto ligne : niveau)
@@ -1016,13 +1023,14 @@ void afficher_niveau(const std::vector< std::vector<sprite> > &niveau, SDL_Point
 		{
 			//Si la position de l'objet correspond à ce qui doit être affiché
 			if (
-				((objet.get_position().x >= reference.x) && (objet.get_position().y >= reference.y))
+				((objet->get_position().x >= reference.x) && (objet->get_position().y >= reference.y))
 				&&
-				((objet.get_position().x <= reference.x + LARGEUR_FENETRE) && (objet.get_position().y <= reference.y + HAUTEUR_FENETRE))
+				((objet->get_position().x <= reference.x + LARGEUR_FENETRE) && (objet->get_position().y <= reference.y + HAUTEUR_FENETRE))
 				)
 			{
 				//alors l'afficher
-				objet.render();
+				objet->set_renderer(rendererFenetre);
+				objet->render();
 			}
 		}
 	}

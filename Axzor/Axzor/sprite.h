@@ -48,7 +48,6 @@ public:
 	void avancer();
 	
 	void render();
-
 protected:
 
 	double angle;

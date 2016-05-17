@@ -142,3 +142,15 @@ int LTexture::getHeight()
 {
 	return mHeight;
 }
+
+//Initialisation des rectangles qui vont s'associer aux différentes images du charset
+void initialiserCharset(SDL_Rect tableauRectangles[], int nombreImages, int largeurChaqueImage, int hauteurChaqueImage)
+{
+	for (int i = 0; i < nombreImages; i++)
+	{
+		tableauRectangles[i].x = largeurChaqueImage * i;
+		tableauRectangles[i].y = 0;
+		tableauRectangles[i].w = largeurChaqueImage;
+		tableauRectangles[i].h = hauteurChaqueImage;
+	}
+}

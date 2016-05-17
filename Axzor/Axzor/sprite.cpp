@@ -93,9 +93,8 @@ void sprite::set_largeur(int largeur){
 bool sprite::chargerTexture(std::string nomFichier){
 
 	//Load balle sprite texture
-	return _sprite_texture.loadFromFile("images/axzor_charset.png");
+	return _sprite_texture.loadFromFile(nomFichier);
 	
-		
 }
 
 
